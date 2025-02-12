@@ -2,24 +2,29 @@
 
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // 기본 스타일을 추가
+import 'react-calendar/dist/Calendar.css'; // 기본 스타일 추가
 import '../../styles/globals.css'; // 글로벌 스타일 파일
 
+// Value 타입을 any로 설정
+type Value = any;
+
 export default function CalendarPage() {
-  const [date, setDate] = useState<Date | null>(null); // 초기값을 null로 설정
-  const [selectedDate, setSelectedDate] = useState<string>(''); // 선택한 날짜를 저장할 상태
+  const [date, setDate] = useState<Value>(new Date()); // 초기값을 new Date()로 설정
+  const [selectedDate, setSelectedDate] = useState<string>(''); // 선택한 날짜 상태
 
   useEffect(() => {
     setDate(new Date());
-  }, []); // 컴포넌트가 마운트될 때만 실행
+  }, []); // 컴포넌트 마운트 시 실행
 
-  const handleDateChange = (newDate: Date | Date[] | null) => {
-    if (newDate) {
-      const formattedDate = (
-        newDate instanceof Date ? newDate : newDate[0]
-      ).toLocaleDateString();
-      setSelectedDate(formattedDate); // 선택된 날짜 상태 업데이트
-      setDate(newDate instanceof Date ? newDate : newDate[0]); // 선택된 날짜 업데이트
+  const handleDateChange = (
+    value: Value,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    if (value) {
+      const selected = Array.isArray(value) ? value[0] : value; // 배열일 경우 첫 번째 값 선택
+      const formattedDate = selected.toLocaleDateString();
+      setSelectedDate(formattedDate);
+      setDate(selected);
     }
   };
 
@@ -43,13 +48,8 @@ export default function CalendarPage() {
     return className;
   };
 
-  if (date === null) {
-    return <div>Loading...</div>; // 초기 로딩 상태
-  }
-
   return (
     <div className="bg-secondary min-h-screen p-4">
-      {/* 텍스트와 달력 사이의 간격을 주기 위해 margin-top을 설정 */}
       <h1 className="text-xl font-YOnepickTTF text-primary text-center mb-4">
         데이트 기록
       </h1>
@@ -57,7 +57,7 @@ export default function CalendarPage() {
         <div className="w-full max-w-sm">
           <Calendar
             value={date}
-            onChange={handleDateChange}
+            onChange={handleDateChange} // 이벤트 파라미터도 받을 수 있도록 수정
             tileClassName={tileClassName}
             className="react-calendar w-full rounded-lg border border-gray-300 bg-transparent"
           />
