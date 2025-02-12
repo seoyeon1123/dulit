@@ -7,7 +7,8 @@ declare module 'next-auth' {
       email: string;
       name: string | null;
       image: string | null;
-      kakaoId: string; // kakaoId 추가
+      kakaoId: string | null; // kakaoId 추가
+      naverId?: string | null;
     };
   }
 }

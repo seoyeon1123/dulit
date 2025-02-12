@@ -31,8 +31,10 @@ export default function Page() {
           <hr className="border-b border-neutral-300 flex-1" />
         </div>
         <div className="flex flex-row justify-center items-center gap-6">
-          <Image src={AppleLogin} alt="카카오 로그인" width={60} height={60} />
-          <Image src={NaverLogin} alt="카카오 로그인" width={60} height={60} />
+          <div onClick={() => signIn('naver', { redirect: true, callbackUrl: '/chat' })}>
+            <Image src={NaverLogin} alt="네이버 로그인" width={60} height={60} />
+          </div>
+          <Image src={AppleLogin} alt="애플 로그인" width={60} height={60} />
         </div>
       </div>
     </div>
