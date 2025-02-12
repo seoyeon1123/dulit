@@ -3,17 +3,13 @@
 import Link from 'next/link';
 import {
   HomeIcon as OutlineHomeIcon,
-  FireIcon as OutlineFireIcon,
   ChatBubbleOvalLeftEllipsisIcon as OutlineChatIcon,
-  VideoCameraIcon as OutlineLiveIcon,
-  UserIcon as OutlineUserIcon,
   UserGroupIcon as OutlineUserGroupIcon,
   CalendarDateRangeIcon as OutlineCalenderIcon,
 } from '@heroicons/react/24/outline';
 import {
   HomeIcon as SolidHomeIcon,
   ChatBubbleOvalLeftEllipsisIcon as SolidChatIcon,
-  UserIcon as SolidUserIcon,
   UserGroupIcon as SoildUserGroupIcon,
   CalendarDateRangeIcon,
 } from '@heroicons/react/24/solid';

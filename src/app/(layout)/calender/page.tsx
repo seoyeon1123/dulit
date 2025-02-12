@@ -5,7 +5,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css'; // 기본 스타일 추가
 import '../../styles/globals.css'; // 글로벌 스타일 파일
 
-// Value 타입을 any로 설정
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Value = any;
 
 export default function CalendarPage() {
@@ -16,10 +16,7 @@ export default function CalendarPage() {
     setDate(new Date());
   }, []); // 컴포넌트 마운트 시 실행
 
-  const handleDateChange = (
-    value: Value,
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleDateChange = (value: Value) => {
     if (value) {
       const selected = Array.isArray(value) ? value[0] : value; // 배열일 경우 첫 번째 값 선택
       const formattedDate = selected.toLocaleDateString();
@@ -50,9 +47,7 @@ export default function CalendarPage() {
 
   return (
     <div className="bg-secondary min-h-screen p-4">
-      <h1 className="text-xl font-YOnepickTTF text-primary text-center mb-4">
-        데이트 기록
-      </h1>
+      <h1 className="text-xl font-YOnepickTTF text-primary text-center mb-4">데이트 기록</h1>
       <div className="flex justify-center">
         <div className="w-full max-w-sm">
           <Calendar
