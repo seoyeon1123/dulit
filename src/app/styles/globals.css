@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* slick-carousel 스타일 */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 @layer components {
   /* 선택된 날짜 스타일 */
   .react-calendar__tile--active {

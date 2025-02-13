@@ -9,12 +9,14 @@ import '../../styles/globals.css'; // 글로벌 스타일 파일
 type Value = any;
 
 export default function CalendarPage() {
-  const [date, setDate] = useState<Value>(new Date()); // 초기값을 new Date()로 설정
-  const [selectedDate, setSelectedDate] = useState<string>(''); // 선택한 날짜 상태
+  const [date, setDate] = useState<Value | null>(null); // date 초기값을 null로 설정
+  const [selectedDate, setSelectedDate] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true); // 로딩 상태 추가
 
   useEffect(() => {
     setDate(new Date());
-  }, []); // 컴포넌트 마운트 시 실행
+    setIsLoading(false); // 컴포넌트가 마운트되면 로딩을 종료
+  }, []);
 
   const handleDateChange = (value: Value) => {
     if (value) {
@@ -45,6 +47,15 @@ export default function CalendarPage() {
     return className;
   };
 
+  // 로딩 상태일 경우, 빈 요소 또는 로딩 메시지 표시
+  if (isLoading || !date) {
+    return (
+      <div className="bg-secondary min-h-screen p-4 flex justify-center items-center">
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-secondary min-h-screen p-4">
       <h1 className="text-xl font-YOnepickTTF text-primary text-center mb-4">데이트 기록</h1>
@@ -52,7 +63,7 @@ export default function CalendarPage() {
         <div className="w-full max-w-sm">
           <Calendar
             value={date}
-            onChange={handleDateChange} // 이벤트 파라미터도 받을 수 있도록 수정
+            onChange={handleDateChange}
             tileClassName={tileClassName}
             className="react-calendar w-full rounded-lg border border-gray-300 bg-transparent"
           />
