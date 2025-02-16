@@ -10,6 +10,7 @@ declare module 'next-auth' {
       email: string;
       image?: string;
     };
+    sub?: string;
   }
 
   interface JWT {

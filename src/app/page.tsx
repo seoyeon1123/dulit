@@ -11,11 +11,11 @@ export default function Page() {
     // 카카오 로그인 요청 시, 카카오 개발자 콘솔에서 설정한 callback URI를 사용
     signIn('kakao', {
       redirect: false,
-      callbackUrl: '/chat',
+      callbackUrl: '/connect',
     }).then((response) => {
       if (response?.url) {
         // 로그인 성공 후, /chat으로 리디렉션
-        window.location.href = `${response.url}?redirectTo=/chat`;
+        window.location.href = `${response.url}?redirectTo=/connect`;
       }
     });
   };
