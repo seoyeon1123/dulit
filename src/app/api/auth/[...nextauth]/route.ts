@@ -26,11 +26,9 @@ const handler = NextAuth({
           console.log('백엔드 응답 상태 코드:', res.status);
           console.log('백엔드 응답 헤더:', res.headers.get('content-type'));
 
-          // 응답을 텍스트로 읽어봄
           const responseText = await res.text();
           console.log('백엔드 응답 내용:', responseText);
 
-          // 응답이 JSON 형식일 경우에만 파싱 시도
           if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
             const data = JSON.parse(responseText); // JSON 파싱
             console.log('백엔드 응답:', data);
