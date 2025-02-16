@@ -6,6 +6,13 @@ import { XCircleIcon } from '@heroicons/react/24/solid';
 import { useLocationHome } from '@/store/useLocationHome';
 import { MapIcon } from '@heroicons/react/24/outline';
 
+interface SearchResult {
+  place_name: string;
+  address_name: string;
+  x: string; // 경도
+  y: string; // 위도
+}
+
 export default function DatePlanPlusModal() {
   const { closeDatePlanModal } = useModalStore();
   const { fetchLocation } = useLocationHome(); // zustand 사용하여 위치 상태 관리
@@ -15,9 +22,7 @@ export default function DatePlanPlusModal() {
   const [location, setLocation] = useState('');
   const [type, setType] = useState('');
   const [date, setDate] = useState('');
-  const [searchResults, setSearchResults] = useState<any[]>([]); // 검색 결과 리스트 상태 관리
-
-  // 아이콘 선택 함수
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]); // searchResults의 타입을 지정
   const handleIconSelect = (selectedIcon: string) => {
     setIcon(selectedIcon);
   };

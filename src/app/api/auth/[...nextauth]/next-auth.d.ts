@@ -1,14 +1,25 @@
-// next-auth.d.ts
 import 'next-auth';
 
 declare module 'next-auth' {
   interface Session {
-    user: {
+    accessToken?: string;
+    refreshToken?: string;
+    user?: {
+      id: string;
+      name: string;
       email: string;
-      name: string | null;
-      image: string | null;
-      kakaoId: string | null; // kakaoId 추가
-      naverId?: string | null;
+      image?: string;
+    };
+  }
+
+  interface JWT {
+    accessToken?: string;
+    refreshToken?: string;
+    user?: {
+      id: string;
+      name: string;
+      email: string;
+      image?: string;
     };
   }
 }

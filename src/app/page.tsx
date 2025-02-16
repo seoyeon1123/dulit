@@ -7,6 +7,19 @@ import NaverLogin from '../assert/main/네이버_로그인_원형.png';
 import { signIn } from 'next-auth/react';
 
 export default function Page() {
+  const handleKakaoLogin = () => {
+    // 카카오 로그인 요청 시, 카카오 개발자 콘솔에서 설정한 callback URI를 사용
+    signIn('kakao', {
+      redirect: false,
+      callbackUrl: '/chat',
+    }).then((response) => {
+      if (response?.url) {
+        // 로그인 성공 후, /chat으로 리디렉션
+        window.location.href = `${response.url}?redirectTo=/chat`;
+      }
+    });
+  };
+
   return (
     <div className="bg-secondary min-h-screen flex flex-col justify-around items-center gap-20 py-10 w-full mx-0">
       <div className="flex flex-col gap-2 justify-center items-center">
@@ -22,7 +35,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div onClick={() => signIn('kakao', { redirect: true, callbackUrl: '/chat' })}>
+        <div onClick={handleKakaoLogin}>
           <Image src={KakaoLogin} alt="카카오 로그인" width={400} height={80} />
         </div>
         <div className="flex flex-row items-center mt-4">
