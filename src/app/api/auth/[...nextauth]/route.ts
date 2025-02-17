@@ -22,7 +22,7 @@ const handler = NextAuth({
         }
 
         try {
-          const res = await fetch('http://192.168.0.55:3000/auth/kakao/callback', {
+          const res = await fetch('http://172.20.10.12:3000/auth/kakao/callback', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -45,6 +45,7 @@ const handler = NextAuth({
             token.refreshToken = refreshToken;
             token.user = user;
             token.sub = user.id;
+            token.socialId = user.socialId;
           } else {
             throw new Error('백엔드에서 JSON 응답을 반환하지 않았습니다.');
           }
@@ -68,6 +69,7 @@ const handler = NextAuth({
         accessToken: token.accessToken as string | undefined,
         refreshToken: token.refreshToken as string | undefined,
         sub: token.sub || '', // sub가 없으면 빈 문자열로 처리
+        socialId: token.socialId || '',
       };
     },
   },

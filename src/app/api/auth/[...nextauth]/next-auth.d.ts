@@ -11,6 +11,7 @@ declare module 'next-auth' {
       image?: string;
     };
     sub?: string;
+    socialId: token.user.socialId;
   }
 
   interface JWT {
