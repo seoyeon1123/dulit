@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useModalStore } from '@/store/modalStore';
 import Input from '../share/Input';
 import { XCircleIcon } from '@heroicons/react/24/solid';
+import Button from '../share/Button';
 
 export default function DDayPlusModal() {
   const { closeDDayModal } = useModalStore();
@@ -50,9 +51,7 @@ export default function DDayPlusModal() {
           onChange={(e) => setDate(e.target.value)}
         />
 
-        <button className="bg-primary text-white p-2 rounded-2xl w-full" onClick={handleSubmit}>
-          추가하기
-        </button>
+        <Button describe="추가하기" handleSubmit={handleSubmit} />
       </div>
     </div>
   );

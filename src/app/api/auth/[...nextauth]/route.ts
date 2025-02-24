@@ -61,9 +61,6 @@ const handler = NextAuth({
       session,
       token,
     }): Promise<Session & { accessToken?: string; refreshToken?: string; sub?: string }> {
-      console.log('세션:', session);
-      console.log('token:', token);
-
       return {
         ...session,
         accessToken: token.accessToken as string | undefined,

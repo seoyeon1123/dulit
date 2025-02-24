@@ -46,7 +46,6 @@ export default function DDayList() {
         <PlusCircleIcon className="size-8 text-[#3E5879] m-3" onClick={openDDayModal} />
       </div>
 
-      {/* 카드 슬라이더 */}
       <div className="overflow-hidden">
         <div className="grid grid-cols-1 gap-2">
           {cards.slice(currentPage * cardsPerPage, (currentPage + 1) * cardsPerPage).map((card, index) => (
@@ -55,7 +54,6 @@ export default function DDayList() {
         </div>
       </div>
 
-      {/* 좌우 슬라이드 버튼 */}
       <div className="flex justify-between mt-4">
         <button
           onClick={prevPage}
