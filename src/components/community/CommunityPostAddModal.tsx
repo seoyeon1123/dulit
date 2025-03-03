@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { PhotoIcon, PlusIcon } from '@heroicons/react/24/outline';
 import ImageUploadMany from './ImageUploadMany';
 import Input from '../share/Input';
 
@@ -7,11 +6,11 @@ export default function CommunityPostAddModal() {
   const [editorContent, setEditorContent] = useState<string>('');
   const editorRef = useRef<HTMLDivElement>(null);
 
-  const handleEditorChange = () => {
-    if (editorRef.current) {
-      setEditorContent(editorRef.current.innerHTML);
-    }
-  };
+  // const handleEditorChange = () => {
+  //   if (editorRef.current) {
+  //     setEditorContent(editorRef.current.innerHTML);
+  //   }
+  // };
 
   const insertImage = (imageUrl: string) => {
     const editor = editorRef.current;

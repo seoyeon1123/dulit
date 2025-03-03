@@ -14,6 +14,7 @@ export default function ImageUploadMany({ onImageSelect }: { onImageSelect: (ima
 
       const newImagePreviews = newFiles.map((file) => URL.createObjectURL(file));
       setImagePreviews((prevPreviews) => [...prevPreviews, ...newImagePreviews]);
+      console.log(selectedFiles);
     }
   };
 
