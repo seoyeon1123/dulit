@@ -5,11 +5,12 @@ import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
 
 interface ICommunityDetail {
-  params: { id: string };
+  params: { id: string }; // params는 id를 가지는 객체로 정의
 }
 
 export default function CommunityDetail({ params }: ICommunityDetail) {
-  console.log(params.id);
+  console.log(params.id); // URL에서 받은 id를 확인
+
   return (
     <div className="bg-secondary min-h-screen flex flex-col p-5">
       <div className="flex flex-col gap-4">
