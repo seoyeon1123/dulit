@@ -6,12 +6,14 @@ import {
   ChatBubbleOvalLeftEllipsisIcon as OutlineChatIcon,
   UserGroupIcon as OutlineUserGroupIcon,
   CalendarDateRangeIcon as OutlineCalenderIcon,
+  UserIcon as OutlineUserIcon,
 } from '@heroicons/react/24/outline';
 import {
   HomeIcon as SolidHomeIcon,
   ChatBubbleOvalLeftEllipsisIcon as SolidChatIcon,
   UserGroupIcon as SoildUserGroupIcon,
   CalendarDateRangeIcon,
+  UserIcon as SolidUserIcon,
 } from '@heroicons/react/24/solid';
 import { usePathname } from 'next/navigation';
 
@@ -19,7 +21,7 @@ export default function TabBar() {
   const pathname = usePathname();
   return (
     <>
-      <div className="fixed bottom-0 w-full mx-auto max-w-screen-sm grid grid-cols-4 border-neutral-300 border-t px-5 py-3 *:text-black bg-secondary">
+      <div className="fixed bottom-0 w-full mx-auto max-w-screen-sm flex flex-row justify-around border-neutral-300 border-t px-5 py-3 *:text-black bg-secondary">
         <Link href="/home" className="flex flex-col items-center gap-px">
           {pathname === '/home' ? (
             <SolidHomeIcon className="size-7 text-primary" />
@@ -47,6 +49,13 @@ export default function TabBar() {
             <SoildUserGroupIcon className="size-7 text-primary" />
           ) : (
             <OutlineUserGroupIcon className="size-7" />
+          )}
+        </Link>
+        <Link href="/user" className="flex flex-col items-center gap-px">
+          {pathname === '/user' ? (
+            <SolidUserIcon className="size-7 text-primary" />
+          ) : (
+            <OutlineUserIcon className="size-7" />
           )}
         </Link>
       </div>

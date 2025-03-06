@@ -25,5 +25,11 @@ declare global {
   }
 }
 
+declare global {
+  interface Window {
+    Kakao: any; // 또는 필요에 따라 더 구체적으로 정의
+  }
+}
+
 export {}; // To ensure this file is treated as a module
 /* eslint-enable @typescript-eslint/no-explicit-any */
