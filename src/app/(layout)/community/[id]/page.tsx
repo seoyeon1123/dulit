@@ -4,11 +4,7 @@ import textImage from '../../../../assert/calender/dateImage.jpeg';
 import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
 
-interface ICommunityDetail {
-  params: { id: string }; // params는 id를 가지는 객체로 정의
-}
-
-export default function CommunityDetail({ params }: ICommunityDetail) {
+export default function CommunityDetail({ params }: { params: { id: string } }) {
   console.log(params.id); // URL에서 받은 id를 확인
 
   return (
