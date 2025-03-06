@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Input from '../share/Input';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 export default function KeywordInput() {

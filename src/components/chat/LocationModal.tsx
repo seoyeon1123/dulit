@@ -47,12 +47,12 @@ export default function LocationModal({ isOpen, onClose, onSendLocation }: Locat
     });
   };
 
-  const handleCopyMapLink = () => {
-    const mapLink = `https://map.kakao.com/link/map/${encodeURIComponent(locationDescription)},${center.lat},${center.lng}`;
-    navigator.clipboard.writeText(mapLink).then(() => {
-      alert('지도 링크가 복사되었습니다!');
-    });
-  };
+  // const handleCopyMapLink = () => {
+  //   const mapLink = `https://map.kakao.com/link/map/${encodeURIComponent(locationDescription)},${center.lat},${center.lng}`;
+  //   navigator.clipboard.writeText(mapLink).then(() => {
+  //     alert('지도 링크가 복사되었습니다!');
+  //   });
+  // };
 
   if (!isOpen) return null;
 

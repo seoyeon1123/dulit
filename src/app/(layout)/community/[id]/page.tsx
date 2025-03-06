@@ -9,6 +9,7 @@ interface ICommunityDetail {
 }
 
 export default function CommunityDetail({ params }: ICommunityDetail) {
+  console.log(params.id);
   return (
     <div className="bg-secondary min-h-screen flex flex-col p-5">
       <div className="flex flex-col gap-4">
