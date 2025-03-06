@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import date from '../../assert/calender/병원데이트.jpeg';
+import dateImage from '../../assert/calender/병원데이트.jpeg';
 
 interface ICommunityPost {
   title: string;
@@ -21,7 +21,7 @@ export default function CommunityPost({ title, category, text }: ICommunityPost)
           </div>
           <p className="text-sm text-neutral-500">{text.length > 100 ? `${text.slice(0, 100)}...` : text}</p>
         </div>
-        <Image src={date} alt="date" width={100} height={100} className="rounded-2xl aspect-square" />
+        <Image src={dateImage} alt="date" width={100} height={100} className="rounded-2xl aspect-square" />
       </div>
     </div>
   );
