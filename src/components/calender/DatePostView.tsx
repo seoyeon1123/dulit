@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import date1 from '../../assert/calender/병원데이트.jpeg';
+import date1 from '../../assert/calender/dateImage.jpeg';
 
 export default function DatePostView() {
   const [click, setClick] = useState(false);
