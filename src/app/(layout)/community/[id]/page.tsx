@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import textImage from '../../../../assert/calender/병원데이트.jpeg';
+import textImage from '../../../../assert/calender/dateImage.jpeg';
 import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
 
