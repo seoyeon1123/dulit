@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import dateImage from '../../assert/calender/병원데이트.jpeg';
+import dateImage from '../../assert/calender/dateImage.jpeg';
 
 interface ICommunityPost {
   title: string;
