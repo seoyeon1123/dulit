@@ -1,16 +1,16 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
 import textImage from '../../../../assert/calender/dateImage.jpeg';
 import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
+import { useParams } from 'next/navigation';
 
-interface CommunityPageProps {
-  params: { id: string };
-}
-
-export default async function CommunityDetail({ params }: CommunityPageProps) {
-  const { id } = await params; // 비동기적으로 처리
-  console.log(id); // 정상적으로 id 확인 가능
+export default async function CommunityDetail() {
+  const { id } = useParams();
+  const paramsId = Number(id);
+  console.log(paramsId);
 
   return (
     <div className="bg-secondary min-h-screen flex flex-col p-5">
