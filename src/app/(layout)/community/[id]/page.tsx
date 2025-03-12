@@ -7,7 +7,7 @@ import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
 import { useParams } from 'next/navigation';
 
-export default async function CommunityDetail() {
+export default function CommunityDetail() {
   const { id } = useParams();
   const paramsId = Number(id);
   console.log(paramsId);
