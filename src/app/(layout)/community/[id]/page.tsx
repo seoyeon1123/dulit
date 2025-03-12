@@ -4,8 +4,13 @@ import textImage from '../../../../assert/calender/dateImage.jpeg';
 import { EyeIcon, HeartIcon } from '@heroicons/react/24/outline';
 import Comment from '@/components/community/Comment';
 
-export default function CommunityDetail({ params }: { params: { id: string } }) {
-  console.log(params.id); // URL에서 받은 id를 확인
+interface CommunityPageProps {
+  params: { id: string };
+}
+
+export default async function CommunityDetail({ params }: CommunityPageProps) {
+  const { id } = await params; // 비동기적으로 처리
+  console.log(id); // 정상적으로 id 확인 가능
 
   return (
     <div className="bg-secondary min-h-screen flex flex-col p-5">
